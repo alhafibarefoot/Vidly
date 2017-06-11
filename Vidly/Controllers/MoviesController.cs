@@ -12,8 +12,8 @@ namespace Vidly.Controllers
         // GET: Movies
         public ActionResult Index(int ? pageIndex,string sortBy)
         {
-            if (!pageIndex.HasValue) 
-                pageIndex=1
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Name";
 
@@ -36,6 +36,11 @@ namespace Vidly.Controllers
             //by entering in form Id=1
         {
             return Content("ID=" + Id);
+        }
+
+        public ActionResult ReleasedDate(int ?year , byte month)
+        {
+            return Content("Year =" + year + "& Month = " + month);
         }
     }
 }
