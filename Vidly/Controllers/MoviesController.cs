@@ -17,7 +17,10 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie { Name = "Gladiator" };
-            return View(movie);
+              return View(movie);
+            //return Content("Hello World");
+            //return HttpNotFound();
+            //return new EmptyResult();
         }
     }
 }
