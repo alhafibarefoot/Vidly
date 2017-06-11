@@ -10,9 +10,14 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies
-        public ActionResult Index()
+        public ActionResult Index(int ? pageIndex,string sortBy)
         {
-            return View();
+            if (!pageIndex.HasValue) 
+                pageIndex=1
+            if (string.IsNullOrWhiteSpace(sortBy))
+                sortBy = "Name";
+
+            return Content(string.Format("PageIndex={0} & SortBy={1}",pageIndex,sortBy));
         }
         public ActionResult Random()
         {
@@ -23,6 +28,14 @@ namespace Vidly.Controllers
             //return new EmptyResult();
             //return RedirectToAction("Index", "Home");
             // return RedirectToAction("Index","Home",new { page=1,sortby="Name"});
+        }
+        public ActionResult Edit(int Id)
+            //parameter sources
+            //movies/edit/1 embeded
+            //movie/edit?Id=1 passing parameter query string
+            //by entering in form Id=1
+        {
+            return Content("ID=" + Id);
         }
     }
 }
