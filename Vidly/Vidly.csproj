@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201706122058331_add-MemeberShipType-Model.Designer.cs">
       <DependentUpon>201706122058331_add-MemeberShipType-Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706122103535_addForignKeyMemberShipType-To-Customer.cs" />
+    <Compile Include="Migrations\201706122103535_addForignKeyMemberShipType-To-Customer.Designer.cs">
+      <DependentUpon>201706122103535_addForignKeyMemberShipType-To-Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706122058331_add-MemeberShipType-Model.resx">
       <DependentUpon>201706122058331_add-MemeberShipType-Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706122103535_addForignKeyMemberShipType-To-Customer.resx">
+      <DependentUpon>201706122103535_addForignKeyMemberShipType-To-Customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
