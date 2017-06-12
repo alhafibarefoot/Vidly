@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201706122124022_addAnnotation-CustomerName.Designer.cs">
       <DependentUpon>201706122124022_addAnnotation-CustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706122207296_addName-MemberShipType.cs" />
+    <Compile Include="Migrations\201706122207296_addName-MemberShipType.Designer.cs">
+      <DependentUpon>201706122207296_addName-MemberShipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706122124022_addAnnotation-CustomerName.resx">
       <DependentUpon>201706122124022_addAnnotation-CustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706122207296_addName-MemberShipType.resx">
+      <DependentUpon>201706122207296_addName-MemberShipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
