@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
+using System.Data.Entity;   /*This used in eager to include forign key*/
 
 namespace Vidly.Controllers
 {
@@ -19,7 +20,8 @@ namespace Vidly.Controllers
         public ViewResult Index()
         {
             //var customers = GetCustomers();
-            var customers = _context.Customers.ToList();
+            //var customers = _context.Customers.ToList(); /*this will not get any forigh table*/
+            var customers = _context.Customers.Include(c=>c.MembershipType).ToList(); /*this will conect with forign table=Eager Method*/
 
             return View(customers);
         }
