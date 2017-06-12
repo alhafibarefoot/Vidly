@@ -11,7 +11,7 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index1(int? pageIndex, string sortBy)
         {
             if (!pageIndex.HasValue)
                 pageIndex = 1;
@@ -19,6 +19,25 @@ namespace Vidly.Controllers
                 sortBy = "Name";
 
             return Content(string.Format("PageIndex={0} & SortBy={1}", pageIndex, sortBy));
+
+
+            
+        }
+
+        public ActionResult Index()
+        {
+            var movies = GetMovies();
+
+            return View(movies);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Gladiator" },
+                new Movie { Id = 2, Name = "Super Man" }
+            };
         }
         public ActionResult Random()
         {
