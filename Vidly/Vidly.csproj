@@ -259,6 +259,14 @@
     <Compile Include="Migrations\201706142059407_seed-populate-Genre.Designer.cs">
       <DependentUpon>201706142059407_seed-populate-Genre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706142200344_addModel-Genre_Membertypre-DBSETS.cs" />
+    <Compile Include="Migrations\201706142200344_addModel-Genre_Membertypre-DBSETS.Designer.cs">
+      <DependentUpon>201706142200344_addModel-Genre_Membertypre-DBSETS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706142248417_unknown.cs" />
+    <Compile Include="Migrations\201706142248417_unknown.Designer.cs">
+      <DependentUpon>201706142248417_unknown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -269,6 +277,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MovieGenreViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -339,6 +348,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -391,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706142059407_seed-populate-Genre.resx">
       <DependentUpon>201706142059407_seed-populate-Genre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706142200344_addModel-Genre_Membertypre-DBSETS.resx">
+      <DependentUpon>201706142200344_addModel-Genre_Membertypre-DBSETS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706142248417_unknown.resx">
+      <DependentUpon>201706142248417_unknown.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
