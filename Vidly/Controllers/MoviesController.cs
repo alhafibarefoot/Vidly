@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Data.Entity; /*Need for forign tables*/
 
 namespace Vidly.Controllers
 {
@@ -38,10 +39,21 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            var movies = GetMovies();
-           
+            // var movies = GetMovies();
 
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
+
         }
 
         private IEnumerable<Movie> GetMovies()
