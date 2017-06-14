@@ -10,6 +10,7 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        
         // GET: Movies
         public ActionResult Index1(int? pageIndex, string sortBy)
         {
@@ -27,6 +28,7 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             var movies = GetMovies();
+           
 
             return View(movies);
         }
