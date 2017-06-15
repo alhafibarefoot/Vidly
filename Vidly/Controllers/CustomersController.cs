@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 using System.Data.Entity;   /*This used in eager to include forign key*/
 
 namespace Vidly.Controllers
@@ -39,7 +40,13 @@ namespace Vidly.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            
+            return View(viewModel);
         }
 
         private IEnumerable<Customer> GetCustomers()

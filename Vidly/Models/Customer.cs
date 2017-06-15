@@ -15,7 +15,10 @@ namespace Vidly.Models
         public bool IsSubscribedToNewsletter { get; set; }
 
         public MembershipType MembershipType { get; set; }
+
+        [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
+
         [Display(Name ="Date of Birth")] /*the proble of this approch each time you like to change lable you have to compile*/
         public DateTime? Birthdate { get; set; }
     }
