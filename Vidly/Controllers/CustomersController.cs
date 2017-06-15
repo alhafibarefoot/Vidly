@@ -50,9 +50,12 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(CustomerFormViewModel viewModel)  /*here it binding  Model*/
+        public ActionResult Save(Customer customer)  /*MVC smart enough to know all attributes +forighn keys*/
         {
-            return View(); /*debug here in chrome -network -you will find all post parameter value from form*/
+            _context.Customers.Add(customer); /*it still in memory*/
+            _context.SaveChanges();  /*commit db*/
+
+            return RedirectToAction("Index", "Customers");
         }
 
         private IEnumerable<Customer> GetCustomers()
