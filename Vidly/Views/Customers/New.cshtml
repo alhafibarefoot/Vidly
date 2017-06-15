@@ -13,7 +13,9 @@
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" }) @*@class = "form-control"  get bootstrap shape of textbox*@  @*Note:@Html.TextBoxFor :get annotation from customer class model such as [Required] [StringLength(255)],check by using chrome inspect element*@ 
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Birthdate) @*=<label></label>*@
+        @*@Html.LabelFor(m => m.Birthdate)=<label></label>*@
+        @*<label>Date Birth</label> you can change label text but when press on lable not focus in textbox*@
+        <label for="Birthdate">Date Birth</label>
         @Html.TextBoxFor(m => m.Birthdate, new { @class = "form-control" }) @*=<input />*@
     </div>
 @* big checkbox ugly
