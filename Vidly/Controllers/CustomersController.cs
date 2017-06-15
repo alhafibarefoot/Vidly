@@ -49,6 +49,12 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Save(CustomerFormViewModel viewModel)  /*here it binding  Model*/
+        {
+            return View(); /*debug here in chrome -network -you will find all post parameter value from form*/
+        }
+
         private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
