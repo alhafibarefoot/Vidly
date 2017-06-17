@@ -8,7 +8,8 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
-    @Html.ValidationSummary()
+    @*@Html.ValidationSummary()*@
+    @Html.ValidationSummary(true, "Please fix the following errors.")  @*Exciplit default ValidationSummary*@
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" }) 
