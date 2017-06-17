@@ -52,6 +52,16 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)  /*MVC smart enough to know all attributes +forighn keys*/
         {
+            if (!ModelState.IsValid) //the passing binding is valid Model=Customer met needs such as annototation  [required] [StringLength(255)]
+            {
+                var viewModel = new CustomerFormViewModel //if not valid return to same form by reverse data whch posted from form
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
