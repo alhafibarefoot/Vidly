@@ -46,7 +46,7 @@ namespace Vidly.Controllers
                 MembershipTypes = membershipTypes
             };
             
-            return View(viewModel);
+            return View("CustomerForm", viewModel); /*we add CustomerForm in View(viewModel)  because name of view differance than action=New */
         }
 
         [HttpPost]
@@ -71,7 +71,7 @@ namespace Vidly.Controllers
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
-            return View("New", viewModel); /*we add New in View(viewModel) to pass to New action otherwise it pass to defualt action Edit */ 
+            return View("CustomerForm", viewModel); 
         }
 
         private IEnumerable<Customer> GetCustomers()
