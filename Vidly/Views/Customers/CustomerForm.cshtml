@@ -32,6 +32,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.MembershipTypeId)
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId) @*we get error even there is no annotation [requir] because it byte if we want to be optional byte?*@
     </div>
 
     <div class="checkbox">
