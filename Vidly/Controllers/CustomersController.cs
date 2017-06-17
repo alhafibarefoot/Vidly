@@ -43,6 +43,7 @@ namespace Vidly.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(), //We add this New view when we submit hidden Id return error in validation summery because it post string value by adding this Id=0
                 MembershipTypes = membershipTypes
             };
             
