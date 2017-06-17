@@ -7,44 +7,39 @@
 <h2>New Customer</h2>
 
 @using (Html.BeginForm("Save", "Customers")) 
-{ @*=<form>*@
+{ 
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
-        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" }) @*@class = "form-control"  get bootstrap shape of textbox*@  @*Note:@Html.TextBoxFor :get annotation from customer class model such as [Required] [StringLength(255)],check by using chrome inspect element*@ 
-        @Html.ValidationMessageFor(m => m.Customer.Name) @*return annotation below textbox such as The Name field is required. *@
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" }) 
+        @Html.ValidationMessageFor(m => m.Customer.Name)
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Birthdate)   @*=<label></label>*@
-        @*<label>Date Birth</label> you can change label text but when press on lable not focus in textbox*@
-        @*<label for="Birthdate">Date Birth</label>*@
-        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:dd/MM/yyyy}", new { @class = "form-control" }) @*=<input />*@
-    </div>
-@* big checkbox ugly
-    <div class="form-group">
-     @Html.LabelFor(m => m.IsSubscribedToNewsletter)
-        @Html.CheckBox(m => m.IsSubscribedToNewsletter, new { @class = "form-control" })
-    </div>
-*@
-
-    
-    
 
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.MembershipTypeId)
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId) @*we get error even there is no annotation [requir] because it byte if we want to be optional byte?*@
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Birthdate)  
+        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:dd/MM/yyyy}", new { @class = "form-control" }) 
+        @Html.ValidationMessageFor(m => m.Customer.Birthdate)
+    </div>
+  
+    
+
+    
+
     <div class="checkbox">
-        @*getbootstrap.com/css*@
+      
         <label>
             @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Subscribed to Newsletter?
         </label>
     </div>
 
 
-    @Html.HiddenFor(m => m.Customer.Id)  @*We have to add this *@
+    @Html.HiddenFor(m => m.Customer.Id) 
 
     <button type="submit" class="btn btn-primary">Save</button>
 
-}@*=</form>*@
+}
