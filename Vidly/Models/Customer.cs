@@ -9,7 +9,7 @@ namespace Vidly.Models
     public class Customer
     {
         public int Id { get; set; }
-        [Required]   /*need to add using System.ComponentModel.DataAnnotations; */
+        [Required(ErrorMessage ="Please Enter Customer Name")]   /*We override default message error validation */
         [StringLength(255)]
         public string Name { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
@@ -23,3 +23,13 @@ namespace Vidly.Models
         public DateTime? Birthdate { get; set; }
     }
 }
+
+//Data Annotations[Required]  
+//        [StringLength(255)]
+//         [Required]
+//         [Range(1,10)]
+//         [Compare("password")]
+//         [Phone]
+//         [EmailAddress]
+//         [Url]
+//         [RegularExpression("..")]
