@@ -71,7 +71,7 @@ namespace Vidly.Controllers
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
-            return View("New", viewModel);
+            return View("New", viewModel); /*we add New in View(viewModel) to pass to New action otherwise it pass to defualt action Edit */ 
         }
 
         private IEnumerable<Customer> GetCustomers()
