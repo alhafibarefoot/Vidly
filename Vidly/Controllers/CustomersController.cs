@@ -52,8 +52,25 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)  /*MVC smart enough to know all attributes +forighn keys*/
         {
-            _context.Customers.Add(customer); /*it still in memory*/
-            _context.SaveChanges();  /*commit db*/
+            if (customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id); //choose single instead of singleordefulat , because if there is customer not found it througn error I will not handle error
+                //TryUpdateModel(customerInDb); 
+                //we can use TryUpdateModel officilly Nice and advice from microsoft instead below line to update form
+                //but it update all pass from form lead to security hole
+                //We can update partial of form 
+                //TryUpdateModel(customerInDb,"",new string[] {"Name","Email" }); 
+                //but problem in majic word 
+
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+            }
+
+            _context.SaveChanges();
 
             return RedirectToAction("Index", "Customers");
         }
