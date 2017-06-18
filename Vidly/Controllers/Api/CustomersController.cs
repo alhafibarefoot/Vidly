@@ -87,25 +87,6 @@ namespace Vidly.Controllers.Api
     }
 }
 
-//asp.Net MVC
-//client send reuest --->Server //server/iis/razorview back as markup HTML(Roue Data which generated in server)
-
-//WEB API
-//client send reuest --->data services WEB API(Application Program interface)--->server
-//HTML generate in Client as Markup Data(XML or JASON(javascript serlized) ) which used plugin in client JQuery(datatavle, sorting, searching..etc)
-//Benifit
-//L1)ess resource of server
-//2)Less Bandwidth
-//3)support broadband of mobil(mobile, table, pc, laptop)
-
-
-//Framework(1-asp.Net MVC 2-asp.Net WEB API) microsft merge toframe work in asp.Net Core
-
-//REST-REpresental State Transfer
-//GET --------api/Customer      ---get resource
-//GET --------api/Customer/1    ---get resource for customerid=1
-//POST -------api/Customer     ---Update resource
-//PUT --------api/Customer/1    ---Update resource for customerid=1
-//DELETE ---- api/Customer/1    ---Update resource for customerid=1
+//We test by using advance rest client add extention to chrome
 
 
