@@ -51,6 +51,7 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)  /*MVC smart enough to know all attributes +forighn keys*/
         {
             if (!ModelState.IsValid) //the passing binding is valid Model=Customer met needs such as annototation  [required] [StringLength(255)]

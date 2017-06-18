@@ -41,7 +41,25 @@
 
 
     @Html.HiddenFor(m => m.Customer.Id) 
+    @Html.AntiForgeryToken()
+    //Anti Forgery key
+    //if we use chrome-network - save we found all value passed throught post so if client leave active session open some Mlaecios page
+    //  Hacker can post any thing post / customer / save to our application by  CSRF = Cross Site Request Forgery
+    //        So to check all post come from our site we add before submit or save @Html.AntiForgeryToken()
+    //so if we check chrome-network - save we found hidden value in _RequestValidationTocken cockie value = long encrepting string
+    //if this _RequestValidationTocken & value not match in CustomersControler on save action[ValidateAntiForgeryToken] So it a hack
+
 
     <button type="submit" class="btn btn-primary">Save</button>
 
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")  
+    @*This enabling Client Side Validation jqueryval in appstart/BundleConfig before no referance in any view..here we use it *@
+
+    @*client side validation benifit 1)Immidiate Feed back 2)No waste server resources*@ 
+    @*if in chrome-network you will not find netwrok activity for CustomerForm all happen in client and it faster*@
+    @*without enabling client side it take source from server by data annotation +  client by razor view*@
 }
