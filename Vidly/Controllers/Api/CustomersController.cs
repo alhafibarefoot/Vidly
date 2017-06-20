@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Vidly.Models;
+using Vidly.Dtos;
+using System.Collections;
 
 namespace Vidly.Controllers.Api
 {
@@ -18,20 +20,43 @@ namespace Vidly.Controllers.Api
         }
 
         // GET /api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList();
 
+            // Manual Mapper
+            return _context.Customers.Select(c => new CustomerDto()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    IsSubscribedToNewsletter = c.IsSubscribedToNewsletter,
+                    MembershipTypeId = c.MembershipTypeId,
+                    Birthdate = c.Birthdate
 
+                }
+            );
         }
 
         // GET /api/customers/1
         public Customer GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            //Manual Mapper
+            //var customers1 = _context.Customers.Where(c => c.Id == id);
+            //var customerDo= customers1.Select(c => new CustomerDto()
+            //{
+            //    Id = c.Id,
+            //    Name = c.Name,
+            //    IsSubscribedToNewsletter = c.IsSubscribedToNewsletter,
+            //    MembershipTypeId = c.MembershipTypeId,
+            //    Birthdate = c.Birthdate
+
+            //}
+            //);
+
 
             if (customer == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
+
 
             return customer;
         }
