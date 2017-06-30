@@ -20,6 +20,7 @@ namespace Vidly.Migrations
         protected override void Seed(Vidly.Models.ApplicationDbContext context)
        
         {
+            //http://www.davepaquette.com/archive/2014/03/18/seeding-entity-framework-database-from-csv.aspx
             //context.Countries.SeedFromResource("Vidly.Models.SeedData.countries.csv", c => c.Code);
             //context.SaveChanges();
             //context.ProvinceStates.SeedFromResource("Vidly.Models.SeedData.provincestates.csv", p => p.Code,
