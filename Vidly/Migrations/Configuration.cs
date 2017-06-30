@@ -20,14 +20,14 @@ namespace Vidly.Migrations
         protected override void Seed(Vidly.Models.ApplicationDbContext context)
        
         {
-            context.Countries.SeedFromResource("Vidly.Models.SeedData.countries.csv", c => c.Code);
-            context.SaveChanges();
-            context.ProvinceStates.SeedFromResource("Vidly.Models.SeedData.provincestates.csv", p => p.Code,
-                new CsvColumnMapping<ProvinceState>("CountryCode", (state, countryCode) =>
-                {
-                    state.Country = context.Countries.Single(c => c.Code == countryCode);
-                })
-             );            
+            //context.Countries.SeedFromResource("Vidly.Models.SeedData.countries.csv", c => c.Code);
+            //context.SaveChanges();
+            //context.ProvinceStates.SeedFromResource("Vidly.Models.SeedData.provincestates.csv", p => p.Code,
+            //    new CsvColumnMapping<ProvinceState>("CountryCode", (state, countryCode) =>
+            //    {
+            //        state.Country = context.Countries.Single(c => c.Code == countryCode);
+            //    })
+            // );            
         }
     }
 }
