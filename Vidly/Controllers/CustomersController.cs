@@ -20,11 +20,8 @@ namespace Vidly.Controllers
         }
         public ViewResult Index()
         {
-            //var customers = GetCustomers();
-            //var customers = _context.Customers.ToList(); /*this will not get any forigh table*/
-            var customers = _context.Customers.Include(c=>c.MembershipType).ToList(); /*this will conect with forign table=Eager Method*/
-
-            return View(customers);
+            
+            return View();
         }
 
         public ActionResult Details(int id)
