@@ -55,7 +55,8 @@ else
 {
     <script>
         $(document).ready(function () {
-            $("#customers .js-delete").on("click", function () {
+            //$("#customers .js-delete").on("click", function () { //this not effecient each customer have a link delete which have handler function each allocated from memory
+            $("#customers").on("click", ".js-delete", function () {  //this we have only one link handler as filter for selector in table customer
                 var button = $(this);
                 bootbox.confirm("Are you sure you want to delete this customer?", function (result) {
                     if (result) {
