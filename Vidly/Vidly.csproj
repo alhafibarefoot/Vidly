@@ -52,8 +52,9 @@
       <HintPath>..\packages\CsvHelper.2.16.3.0\lib\net45\CsvHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.Seeder.EF6">
-      <HintPath>..\..\..\..\Users\Administrator\Documents\Visual Studio 2013\Projects\WebApplication5\packages\EntityFramework.6.1.3\lib\EntityFramework.Seeder.EF6.dll</HintPath>
+    <Reference Include="EntityFramework.Seeder.EF6, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Seeder.EF6.0.4.0\lib\EntityFramework.Seeder.EF6.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
