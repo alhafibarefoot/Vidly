@@ -5,7 +5,7 @@ namespace Vidly.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-     using System.IO;
+    using System.IO;
     using System.Reflection;
     using System.Text;
     using Vidly.Models;
