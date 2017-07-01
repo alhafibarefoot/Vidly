@@ -74,7 +74,7 @@
                             url: "/api/customers/" + button.attr("data-customer-id"),
                             method: "DELETE",
                             success: function () {
-                                table.row(button.parents("tr")).remove().draw(); //remove:from table in dom draw remove from view
+                                table.row(button.parents("tr")).remove().draw(); //https://datatables.net/ you will find all documentations
                             }
                         });
                     }
