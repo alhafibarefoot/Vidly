@@ -14,7 +14,7 @@ namespace Vidly.Models
         public string Name { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
 
-        public MembershipType MembershipType { get; set; }
+        public virtual MembershipType MembershipType { get; set; } //by adding virtual called lazy loading not Eager loading each customer have all record  member type it bad check by glipse
 
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
