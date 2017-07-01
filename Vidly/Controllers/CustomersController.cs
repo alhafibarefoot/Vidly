@@ -7,7 +7,7 @@ using System.Data.Entity;   /*This used in eager to include forign key*/
 
 namespace Vidly.Controllers
 {
-    [Authorize] //all method should be authorized 
+   
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -19,7 +19,7 @@ namespace Vidly.Controllers
         {
             _context.Dispose();
         }
-        [Authorize] //Only this method authorized
+        
         public ViewResult Index()
         {
             
