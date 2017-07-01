@@ -312,6 +312,10 @@
     <Compile Include="Migrations\201707011726487_seedingUsers.Designer.cs">
       <DependentUpon>201707011726487_seedingUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707011830435_AddingDrivingLicinceToUserProfile.cs" />
+    <Compile Include="Migrations\201707011830435_AddingDrivingLicinceToUserProfile.Designer.cs">
+      <DependentUpon>201707011830435_AddingDrivingLicinceToUserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Country.cs" />
@@ -511,6 +515,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707011726487_seedingUsers.resx">
       <DependentUpon>201707011726487_seedingUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707011830435_AddingDrivingLicinceToUserProfile.resx">
+      <DependentUpon>201707011830435_AddingDrivingLicinceToUserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\SeedData\countries.csv" />
     <EmbeddedResource Include="Models\SeedData\provincestates.csv" />
