@@ -157,12 +157,12 @@ namespace Vidly.Controllers
                 if (result.Succeeded)
                 {
                     //Temp Code Just Assigning User to Role for admin@vidly.com //then we commit below code after registration
-                    var roleStore=new RoleStore <IdentityRole> (new ApplicationDbContext());
-                    var roleManager=new RoleManager<IdentityRole>(roleStore);
-                    await roleManager.CreateAsync(new IdentityRole("CanManageMovies"));
-                    await UserManager.AddToRoleAsync(user.Id,"CanManageMovies");
-                    await roleManager.CreateAsync(new IdentityRole("CanManageCustomers"));
-                    await UserManager.AddToRoleAsync(user.Id, "CanManageCustomers");
+                    //var roleStore=new RoleStore <IdentityRole> (new ApplicationDbContext());
+                    //var roleManager=new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageMovies"));
+                    //await UserManager.AddToRoleAsync(user.Id,"CanManageMovies");
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageCustomers"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanManageCustomers");
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
