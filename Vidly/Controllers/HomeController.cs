@@ -10,7 +10,7 @@ namespace Vidly.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        [OutputCache(Duration = 10, Location = OutputCacheLocation.Server, VaryByParam = "Genre")] //IF output depend in parm genre ,so each diff genre have differant output cashe , we can put VaryByParam="*"
+        [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)] //Disable Cashing
         public ActionResult Index()
         {
             return View();
