@@ -10,7 +10,7 @@ namespace Vidly.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        [OutputCache(Duration = 10, Location = OutputCacheLocation.Server)] //We can Enable cashe also on client OutputCacheLocation.Client if view related to specific client or both client & server
+        [OutputCache(Duration = 10, Location = OutputCacheLocation.Server, VaryByParam = "Genre")] //IF output depend in parm genre ,so each diff genre have differant output cashe , we can put VaryByParam="*"
         public ActionResult Index()
         {
             return View();
