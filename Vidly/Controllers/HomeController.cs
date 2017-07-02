@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Vidly.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        [OutputCache(Duration = 10)] //enable output cashing for 10 sec ex:ASP.NET 02/07/2017 11:51:08 AM next refresh 02/07/2017 11:51:18 AM
+        [OutputCache(Duration = 10, Location = OutputCacheLocation.Server)] //We can Enable cashe also on client OutputCacheLocation.Client if view related to specific client or both client & server
         public ActionResult Index()
         {
             return View();
