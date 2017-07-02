@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
 using System.Data.Entity;   /*This used in eager to include forign key*/
+using System.Runtime.Caching;
+
 
 namespace Vidly.Controllers
 {
@@ -22,7 +24,16 @@ namespace Vidly.Controllers
         
         public ViewResult Index()
         {
-            
+            //*** We add this cause Genre rare to change:lookup  so it a  good example for : data cashing 
+            if(MemoryCache.Default["Genres"]==null){
+
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+            else
+            {
+                var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>; 
+            }
+            //*********
             return View();
         }
 
