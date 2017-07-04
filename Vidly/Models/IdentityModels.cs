@@ -32,6 +32,8 @@ namespace Vidly.Models
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<ProvinceState> ProvinceStates { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
