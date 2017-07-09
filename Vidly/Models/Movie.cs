@@ -28,5 +28,9 @@ namespace Vidly.Models
         [Display(Name = "Number in Stock")]
         [Range(1, 20)]
         public byte NumberInStock { get; set; }
+        public byte NumberAvailable { get; set; }
+        //as Optomization it better to add as a field so we can ++ in back movie and -- in rental
+        //instead if we make calcalution of avaibility from two tables   movie(NumberInStock) - (rental)movie with no return date
+        //it take time 
     }
 }
