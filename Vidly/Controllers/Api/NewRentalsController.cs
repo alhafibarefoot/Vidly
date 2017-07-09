@@ -18,14 +18,13 @@ namespace Vidly.Controllers.Api
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
-            //var customer = _context.Customers.SingleOrDefault(
-            //    c => c.Id == newRental.CustomerId);
-            //if (customer == null)
-            //    return BadRequest("Invalid Cutomer ID");
-            //above code is not happy path define var customer in single only happy path because I assume
-            //this private api pass from enternal system widget such as data picker and even hacker need 
-            //to pass throught with invalid it return error
-            //so above code exdtend without meaning and could be use for public api
+            //What Edge case we have to face in rental api?
+            //Customer ID is inValid
+            //no MovieID
+            //one or more movie are Invalid
+            //one or more movie Not available
+
+
             var customer = _context.Customers.Single(
                 c => c.Id == newRental.CustomerId);
 
