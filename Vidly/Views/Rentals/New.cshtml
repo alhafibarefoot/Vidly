@@ -45,6 +45,8 @@
             name: 'customers',
             display: 'name',
             source: customers
+        }).on("typeahead:select", function (e, customer) {
+            vm.customerId = customer.id;
         });
 
     });
