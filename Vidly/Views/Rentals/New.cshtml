@@ -8,15 +8,18 @@
 @*@Html.BeginForm("action","controller") =<form action="~/Controller>/action"></form</form>*@
 @*@Ajax.BeginForm          we use this for call action  mvc controller but not in api controller because it show in uglyt*@
 @*so we use row html instead as below*@
-<form>
-@*div.form-group>label+input[type='text'].form-control*@ @*if you press tab and install web esential this call Zencoding code extract as below*@
+<form id="newRental">
     <div class="form-group">
-        <label>Cutomer</label>
-        <input  id="customer" name="customer"  type="text" value="" class="form-control" />
+        <label>Customer</label>
+        <div class="tt-container">
+            <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
+        </div>
     </div>
     <div class="form-group">
-        <label>Movies</label>
-        <input id="movie" name="movie" type="text" value="" class="form-control" />
+        <label>Movie</label>
+        <div class="tt-container">
+            <input id="movie" name="movie" data-rule-atLeastOneMovie="true" type="text" value="" class="form-control" />
+        </div>
     </div>
     <div class="row">
         <div class="col-md-4 col-sm-4">
