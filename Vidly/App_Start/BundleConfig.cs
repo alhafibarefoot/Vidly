@@ -14,7 +14,8 @@ namespace Vidly
                         "~/scripts/bootbox.js",//add bootbox reference which abstract over bootstrap
                         "~/Scripts/respond.js",
                         "~/scripts/datatables/jquery.datatables.js", //add jquery.datatables reference
-                        "~/scripts/datatables/datatables.bootstrap.js"  //integrate datatable with bootstrap
+                        "~/scripts/datatables/datatables.bootstrap.js" , //integrate datatable with bootstrap
+                        "~/scripts/typeahead.bundle.js" //see example google type ahead and add in content css typeahead
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
