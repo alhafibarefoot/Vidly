@@ -30,51 +30,26 @@ namespace Vidly.Controllers.Api
             //helpfull when you use public api used by differant application and different teams
             //for enternal use I prefer optimistic less condiftion less validation
 
-            if (newRental.MovieIds.Count == 0)
-                return BadRequest("no MovieID have been given"); //we move up because no movie so nesseccary quary customer
+            //if (newRental.MovieIds.Count == 0)
+            //    return BadRequest("no MovieID have been given"); //we move up because no movie so nesseccary quary customer
 
-            var customer = _context.Customers.SingleOrDefault(
-               c => c.Id == newRental.CustomerId);
-            if (customer == null)
-                return BadRequest("Invalid Cutomer ID");
+            //var customer = _context.Customers.SingleOrDefault(
+            //   c => c.Id == newRental.CustomerId);
+            //if (customer == null)
+            //    return BadRequest("Invalid Cutomer ID");
 
            
-
-            var movies = _context.Movies.Where(
-                m => newRental.MovieIds.Contains(m.Id)).ToList(); //same select * from movie where id in (1,2,3);
-
-            if (movies.Count != newRental.MovieIds.Count)
-                return BadRequest("one or more movieIds are Invalid");
-
-            foreach (var movie in movies)
-            {
-                if (movie.NumberAvailable==0)
-                    return BadRequest("one or more movie Not available");
-
-                movie.NumberAvailable--;
-                var rental = new Rental
-                {
-                    Customer = customer,
-                    Movie = movie,
-                    DateRented = DateTime.Now
-                };
-
-                _context.Rentals.Add(rental);
-            }
-
-            //**************
-
-            //****************Optimistic Approch
-
-            //var customer = _context.Customers.Single(
-            //    c => c.Id == newRental.CustomerId);
-
 
             //var movies = _context.Movies.Where(
             //    m => newRental.MovieIds.Contains(m.Id)).ToList(); //same select * from movie where id in (1,2,3);
 
+            //if (movies.Count != newRental.MovieIds.Count)
+            //    return BadRequest("one or more movieIds are Invalid");
+
             //foreach (var movie in movies)
             //{
+            //    if (movie.NumberAvailable==0)
+            //        return BadRequest("one or more movie Not available");
 
             //    movie.NumberAvailable--;
             //    var rental = new Rental
@@ -86,6 +61,33 @@ namespace Vidly.Controllers.Api
 
             //    _context.Rentals.Add(rental);
             //}
+
+            //**************
+
+            //****************Optimistic Approch
+
+            var customer = _context.Customers.Single(
+                c => c.Id == newRental.CustomerId);
+
+
+            var movies = _context.Movies.Where(
+                m => newRental.MovieIds.Contains(m.Id)).ToList(); //same select * from movie where id in (1,2,3);
+
+            foreach (var movie in movies)
+            {
+                if (movie.NumberAvailable == 0) //it could be lead by hacker to minus
+                        return BadRequest("one or more movie Not available");
+
+                movie.NumberAvailable--;
+                var rental = new Rental
+                {
+                    Customer = customer,
+                    Movie = movie,
+                    DateRented = DateTime.Now
+                };
+
+                _context.Rentals.Add(rental);
+            }
 
             //**************
 
