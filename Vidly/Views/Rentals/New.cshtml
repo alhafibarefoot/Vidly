@@ -1,93 +1,102 @@
 ﻿@model dynamic
+
 @{
-    ViewBag.Title = "New";
-    //Layout = "~/Views/Shared/_Layout.cshtml"; we can remove it so system use shared\_viewstart.chtml
+    ViewBag.Title = "New Rental Form";
 }
 
-<h2>Rental Form</h2>
-@*@Html.BeginForm("action","controller") =<form action="~/Controller>/action"></form</form>*@
-@*@Ajax.BeginForm          we use this for call action  mvc controller but not in api controller because it show in uglyt*@
-@*so we use row html instead as below*@
+<h2>New Rental Form</h2>
+
 <form id="newRental">
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-            <input id="customer" name="customer"  required type="text" value="" class="form-control" />
+            <input id="customer" type="text" value="" class="form-control" />
         </div>
     </div>
+
     <div class="form-group">
         <label>Movie</label>
         <div class="tt-container">
-            <input id="movie" name="movie"  type="text" value="" class="form-control" />
+            <input id="movie" type="text" value="" class="form-control" />
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-4 col-sm-4">
             <ul id="movies" class="list-group"></ul>
         </div>
     </div>
+
     <button class="btn btn-primary">Submit</button>
 </form>
-
 @section scripts
 {
-@Scripts.Render("~/bundles/jqueryval")
-<script>
-    $(document).ready(function () {
-        var vm = {
-            movieIds: []
-        };
+    <script>
+        $(document).ready(function () {
 
-        //https://twitter.github.io/typeahead.js/examples/#remote
-        var vm = {
-            movieIds: []
-        };
+            var vm = {
+                movieIds: []
+            };
 
-        var customers = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            remote: {
-                url: '/api/customers?query=%QUERY',
-                wildcard: '%QUERY'
-            }
+            var customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/customers?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#customer').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'customers',
+                display: 'name',
+                source: customers
+            }).on("typeahead:select", function (e, customer) {
+                vm.customerId = customer.id;
+            });
+
+            var movies = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/movies?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#movie').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'movies',
+                display: 'name',
+                source: movies
+            }).on("typeahead:select", function (e, movie) {
+                $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
+
+                $("#movie").typeahead("val", "");
+
+                vm.movieIds.push(movie.id);
+            });
+
+            $("#newRental").submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "/api/newRentals",
+                    method: "post",
+                    data: vm
+                })
+                .done(function () {
+                    console.log("done");
+                })
+                .fail(function () {
+
+                });
+            });
         });
-
-        $('#customer').typeahead({
-            minLength: 3,
-            highlight: true
-        }, {
-            name: 'customers',
-            display: 'name',
-            source: customers
-        }).on("typeahead:select", function (e, customer) {
-            vm.customerId = customer.id;
-        });
-        var movies = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            remote: {
-                url: '/api/movies?query=%QUERY',
-                wildcard: '%QUERY'
-            }
-        });
-
-        $('#movie').typeahead({
-            minLength: 3,
-            highlight: true
-        }, {
-            name: 'movies',
-            display: 'name',
-            source: movies
-        }).on("typeahead:select", function (e, movie) {
-            $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
-
-            $("#movie").typeahead("val", "");
-
-            vm.movieIds.push(movie.id);
-        });
-
-
-    });
-
-</script>
+    </script>
 }
