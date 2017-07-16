@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Vidly.Models;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Identity;
+
 
 namespace Vidly.Models
 {
