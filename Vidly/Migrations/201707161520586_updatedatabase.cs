@@ -7,7 +7,7 @@ namespace Vidly.Migrations
     {
         public override void Up()
        {
-
+           //http://www.mortenanderson.net/code-first-migrations-for-entity-framework
            //just type in C:\PS>get-help Update-Database -examples
 //            -------------------------- EXAMPLE 1 --------------------------
 //C:\PS>Update-Database
