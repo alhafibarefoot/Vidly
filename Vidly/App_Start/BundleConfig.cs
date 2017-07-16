@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Vidly
 {
@@ -11,12 +10,12 @@ namespace Vidly
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
-                        "~/scripts/bootbox.js",//add bootbox reference which abstract over bootstrap
+                        "~/scripts/bootbox.js",
                         "~/Scripts/respond.js",
-                        "~/scripts/datatables/jquery.datatables.js", //add jquery.datatables reference
-                        "~/scripts/datatables/datatables.bootstrap.js" , //integrate datatable with bootstrap
-                        "~/scripts/typeahead.bundle.js", //see example google type ahead and add in content css typeahead
-                         "~/scripts/toastr.js"
+                        "~/scripts/datatables/jquery.datatables.js",
+                        "~/scripts/datatables/datatables.bootstrap.js",
+                        "~/scripts/typeahead.bundle.js",
+                        "~/scripts/toastr.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -27,13 +26,12 @@ namespace Vidly
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-Lumen.css",
-                      "~/content/datatables/css/datatables.bootstrap.css", //add table style sheet CSS bundle
-                       "~/content/typeahead.css",
-                        "~/content/toastr.css",
+                      "~/Content/bootstrap-lumen.css",
+                      "~/Content/bootstrap-theme.css",
+                      "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/content/typeahead.css",
+                      "~/content/toastr.css",
                       "~/Content/site.css"));
         }
     }
