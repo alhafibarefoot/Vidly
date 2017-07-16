@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Vidly.Models
@@ -9,10 +7,10 @@ namespace Vidly.Models
     public class Movie
     {
         public int Id { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-      
 
         public Genre Genre { get; set; }
 
@@ -28,9 +26,7 @@ namespace Vidly.Models
         [Display(Name = "Number in Stock")]
         [Range(1, 20)]
         public byte NumberInStock { get; set; }
+
         public byte NumberAvailable { get; set; }
-        //as Optomization it better to add as a field so we can ++ in back movie and -- in rental
-        //instead if we make calcalution of avaibility from two tables   movie(NumberInStock) - (rental)movie with no return date
-        //it take time 
     }
 }

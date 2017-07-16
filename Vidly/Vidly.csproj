@@ -361,6 +361,10 @@
     <Compile Include="Migrations\201707091950502_Movie-NumberAvailable.Designer.cs">
       <DependentUpon>201707091950502_Movie-NumberAvailable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707160708470_moviecheck.cs" />
+    <Compile Include="Migrations\201707160708470_moviecheck.Designer.cs">
+      <DependentUpon>201707160708470_moviecheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Country.cs" />
@@ -574,6 +578,9 @@
     <EmbeddedResource Include="Migrations\201707091950502_Movie-NumberAvailable.resx">
       <DependentUpon>201707091950502_Movie-NumberAvailable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707160708470_moviecheck.resx">
+      <DependentUpon>201707160708470_moviecheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\SeedData\countries.csv" />
     <EmbeddedResource Include="Models\SeedData\provincestates.csv" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
@@ -715,6 +722,7 @@
     <Content Include="Views\Movies\MovieForm.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
     <Content Include="Views\Rentals\New.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
