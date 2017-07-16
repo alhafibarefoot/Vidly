@@ -5,6 +5,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using System;
 using Vidly.Models;
+using System.Configuration;
 
 namespace Vidly
 {
@@ -55,8 +56,8 @@ namespace Vidly
 
 
             app.UseFacebookAuthentication(
-               appId: "1",
-               appSecret: "abcd");
+               appId: ConfigurationManager.AppSettings["FacebookAppID"], //remeber always back string so if your value number onlu you hace cast to number 
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 //            https://developers.facebook.com/
 //enter with you user as developers
 //then developer dashboard
