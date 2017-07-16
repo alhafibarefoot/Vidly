@@ -702,6 +702,7 @@
     <Content Include="Scripts\typeahead.jquery.js" />
     <Content Include="Scripts\typeahead.jquery.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SecuringSettings.txt" />
     <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

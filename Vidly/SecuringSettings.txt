@@ -1,0 +1,9 @@
+If you need to secure you applicationsetting.config and connectionsettings.config
+go visual studio tools
+developer command prompt
+run as administrator
+to encrypt type as below 
+c:\windows\system32>aspnet_regiis -pef "appSettings" "c:\deply" -prov "DataProtectionConfigurationProvider"
+
+to decrept type as below 
+c:\windows\system32>aspnet_regiis -pdf "appSettings" "c:\deply" 
