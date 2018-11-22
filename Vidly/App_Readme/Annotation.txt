@@ -1,0 +1,358 @@
+
+
+[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
+[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
+ [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
+
+[StringLength(50, MinimumLength=1)]
+
+ [DataType(DataType.Currency)]
+      [Column(TypeName = "money")]
+
+ [DisplayFormat(NullDisplayText = "No grade")]
+
+ [Timestamp]
+
+ [Column(“BlogDescription", TypeName="ntext")]
+
+[Range(0.01, 100.00,
+            ErrorMessage = "Price must be between 0.01 and 100.00")]
+
+public string ExpirationYear { get; set; }
+    public string ExpirationMonth { get; set; }
+
+    public string ExpirationDate
+    {
+        get
+        {
+            return string.Format("{0}/{1}", ExpirationMonth, ExpirationYear);
+        }
+    }
+
+Age
+ get { return DateTime.Now.Year - BirthDate.Year - (((DateTime.Now.Month < BirthDate.Month)
+			|| DateTime.Now.Month == BirthDate.Month && DateTime.Now.Day < BirthDate.Day) ? 1 : 0));
+
+[SqlDefaultValue(DefaultValue = "getutcdate()")]
+
+ [StringLength(Int32.MaxValue)]
+ [DataType(DataType.Date)]
+  [Range(1,100)]
+   [MaxLength(200)]
+   
+   [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+   
+   [DefaultValue("true")]
+public bool Active { get; set; }
+
+[SqlDefaultValue(DefaultValue = "getutcdate()")]
+public DateTime CreatedDateUtc { get; set; }
+
+
+[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+[DefaultValue("getutcdate()")]
+public DateTime CreatedOn { get; set; }
+
+
+private const int DEFAULT_LENGTH = 400;
+    private int _length = DEFAULT_LENGTH;
+    [DefaultValue(DEFAULT_LENGTH)]
+    public int LengthInMeters {
+        get { return _length; }
+        set { _length = value; }
+    }
+	
+	
+	[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+[Column(TypeName = "varchar")]
+[StringLength(5)]
+[DefaultValue(DefaultValue = "'aaccc'")]
+
+[Column(TypeName = "VARCHAR")]
+[Column(TypeName = "varchar(MAX)")]
+
+[RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "user name must be combination of letters and numbers only.")]
+		
+		[Remote("UsernameExists","Account",
+        HttpMethod="POST",ErrorMessage="User name already registered.")]
+		
+		
+		[System.Web.Mvc.Compare("Password",
+        ErrorMessage="Both Password fields must match.")]
+		
+		[EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Remote("EmailExists", "Account", 
+        HttpMethod = "POST", ErrorMessage = "Email address already registered.")]
+
+
+		[Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID { get; set; }
+
+    [Required]
+    public string Name { get; set; }
+
+    public virtual ICollection<Student> Students { get; set; }
+
+    public int TeacherID { get; set; }
+
+    public int BuildingID { get; set; }
+
+    [ForeignKey("TeacherID")]
+    public virtual Teacher Teacher { get; set; }
+
+    [ForeignKey("BuildingID")]
+    public virtual Building Building { get; set; }
+}
+
+
+
+
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+using System.ComponentModel;
+
+    {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Company is required")]
+        [Display(Name = "Company")]
+        public int LF_CompanyID { get; set; }
+
+        [DisplayName("Division")]
+        public int? LF_DivisionID { get; set; }
+
+        [DisplayName("Customer Group Type")]
+        public int? LF_CutomerGroupTypeID { get; set; }
+
+        [DisplayName("Payment Term")]
+        public int? LF_PaymentTermID { get; set; }
+
+        [DisplayName("Tax")]
+        public int? LF_TaxID { get; set; }
+
+        [DisplayName("CPR or CR")]
+        [StringLength(9, MinimumLength = 9, ErrorMessage = "CPR cannot be longer or Less than 9 characters.")]
+        public string CPR_CR { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [StringLength(30)]
+        [Display(Name = "Customer Code")]
+        public string CustomerCode { get; set; }
+
+        [Required(ErrorMessage = "Customer Name is required")]
+        [RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "Customer name must be combination of letters and numbers only.")] 
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Customer Name cannot be longer than 100 and less than 3 characters.")]
+        [Display(Name = "Customer Name  English")]
+        public string CustomerNameEn { get; set; }
+
+
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Customer Name cannot be longer than 100 and less than 3 characters.")]
+        [Display(Name = "Customer Name  Arabic")]
+        [RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "Customer name must be combination of letters and numbers only.")]
+        public string CustomerNameAr { get; set; }
+
+
+        [StringLength(200)]
+        [Display(Name = "Full Address")]
+        public string CustomerAddress { get; set; }
+
+
+        [StringLength(50)]
+        [Display(Name = "(Flat/Villa/Shop/Store) NO.")]
+        public string Unit_Address { get; set; }
+
+
+        [StringLength(50)]
+        [Display(Name = "(Building/Complex/Compound) NO.")]
+        public string Building { get; set; }
+
+
+        [DisplayName("Country")]
+        public int? LT_CountryID { get; set; }
+
+
+        [Display(Name = "Governorate/Province")]
+        public int? LT_GovernorateID { get; set; }
+
+
+        [Display(Name = "Region/City")]
+        public int? LT_RegionID { get; set; }
+
+
+        [Display(Name = "Area/Block")]
+        public int? LT_AreaNO { get; set; }
+
+        [Display(Name = "Road/Street/Avenu")]
+        public int? LT_RoadNO { get; set; }
+
+
+        [StringLength(75)]
+        [Display(Name = "Post office Box")]
+        public string POB { get; set; }
+
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Primary Contact Person cannot be longer than 100 and less than 3 characters.")]
+        [Display(Name = "Primary Contact Person")]
+        public string ContactPerson_P { get; set; }
+
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Secondary Contact Person cannot be longer than 100 and less than 3 characters.")]
+        [Display(Name = "Secondary Contact Person")]
+        public string ContactPerson_S { get; set; }
+
+
+        [StringLength(15, MinimumLength = 8, ErrorMessage = "Primary Telephone cannot be longer than 15 and less than 8 characters.")]
+        [Display(Name = "Primary Telephone")]
+        public string ContactTel_P { get; set; }
+
+
+        [StringLength(15, MinimumLength = 8, ErrorMessage = "Secondary Telephone cannot be longer than 15 and less than 8 characters.")]
+        [Display(Name = "Secondary Telephone")]
+        public string ContactTel_S { get; set; }
+
+        [StringLength(15, MinimumLength = 8, ErrorMessage = "Fax Telephone cannot be longer than 15 and less than 8 characters.")]
+        [Display(Name = "Fax Telephone")]
+        public string FaxTel { get; set; }
+
+        [StringLength(15, MinimumLength = 8, ErrorMessage = "Primary Mobile cannot be longer than 15 and less than 8 characters.")]
+        [Display(Name = "Primary Mobile")]
+        public string ContactMobil_P { get; set; }
+
+
+        [StringLength(15, MinimumLength = 8, ErrorMessage = "Secondary Mobile cannot be longer than 15 and less than 8 characters.")]
+        [Display(Name = "Secondary Mobile")]
+        public string ContactMobil_S { get; set; }
+
+        [StringLength(75, MinimumLength = 3, ErrorMessage = "Primary Email cannot be longer than 75 and less than 3 characters.")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email Format is wrong")]
+        [DisplayName("Primary Email")]
+        public string ContactEmail_P { get; set; }
+
+
+        [StringLength(75, MinimumLength = 3, ErrorMessage = "Secondary Email cannot be longer than 75 and less than 3 characters.")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email Format is wrong")]
+        [DisplayName("Secondary Email")]
+        public string ContactEmail_S { get; set; }
+
+
+        [Url]
+        [StringLength(75)]
+        [Display(Name = "web Site")]
+        public string WebSite { get; set; }
+
+
+        [DisplayName("Migration Customer Code")]
+        [MaxLength(30, ErrorMessage = "Length cannot be more than 30")]
+        [StringLength(30)]
+        public string MigrateCustomerCode { get; set; }
+
+
+        [DisplayName("Customer Note")]
+        [MaxLength(255, ErrorMessage = "Length cannot be more than 255")]
+        [StringLength(255)]
+        public string CustomerNote { get; set; }
+
+        [DisplayName("Currency")]
+        public int? LF_CurrencyID { get; set; }
+
+        [Display(Name = "Delay Days Limit")]
+        [DefaultValue("0")]
+        public int? DelayDaysLimit { get; set; }
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Credit Limit")]
+        public decimal? CreditLimit { get; set; }
+
+        [Display(Name = "Discount Rate")]
+        [DefaultValue("0")]
+        public byte? MaxDiscountRate { get; set; }
+        [DisplayName("Credit")]
+
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Openning Balance-Credit")]
+        public decimal? OpenBalanceCredit { get; set; }
+
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Openning Balance-Debit")]
+        public decimal? OpenBalanceDebit { get; set; }
+
+
+        [DisplayName("Open-Balance")]
+        [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public decimal? OpenBalance { get; set; }
+
+
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Current Balance-Credit")]
+        public decimal? CurrentBalanceCredit { get; set; }
+
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Current Balance-Debit")]
+        public decimal? CurrentBalanceDebit { get; set; }
+
+
+
+        [DisplayName("Current-Balance")]
+        [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public decimal? CurrentBalance { get; set; }
+
+
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Start Balance-Credit")]
+        public decimal? StartBalanceCredit { get; set; }
+
+
+        [Column(TypeName = "numeric")]
+        [DefaultValue("0")]
+        [Display(Name = "Start Balance-debit")]
+        public decimal? StartBalanceDebit { get; set; }
+
+
+
+        [DisplayName("Start-Balance")]
+        [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public decimal? StartBalance { get; set; }
+
+
+
+        public virtual LT_Area LT_Area { get; set; }
+
+        public virtual LT_Country LT_Country { get; set; }
+
+        public virtual LT_Currency LT_Currency { get; set; }
+
+        public virtual LT_CustomerGroupType LT_CustomerGroupType { get; set; }
+
+        public virtual LT_Division LT_Division { get; set; }
+
+        public virtual LT_Governorate LT_Governorate { get; set; }
+
+        public virtual LT_PaymentTerm LT_PaymentTerm { get; set; }
+
+        public virtual LT_Region LT_Region { get; set; }
+
+        public virtual LT_Roads LT_Roads { get; set; }
+
+        public virtual LT_Tax LT_Tax { get; set; }
+
+        public virtual STR_Company STR_Company { get; set; }
+    }
+}
