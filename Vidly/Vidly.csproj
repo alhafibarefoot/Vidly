@@ -401,6 +401,7 @@
   <ItemGroup>
     <Content Include="404.html" />
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="App_Readme\Migation.txt" />
     <Content Include="Content\bootstrap-Lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap.css" />
@@ -609,6 +610,8 @@
     <Content Include="AppSettings.config" />
     <Content Include="ConnectionStrings.config" />
     <Content Include="App_Readme\ReminderNotes.docx" />
+    <Content Include="App_Readme\HOW TO CREATE AN EXPANDED LIGHTSWITCH 2013.docx" />
+    <Content Include="App_Readme\MakeReportServiceMVC.docx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

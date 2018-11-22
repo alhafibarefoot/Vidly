@@ -1,0 +1,110 @@
+AddColumn("dbo.LT_NatureOfAccount", "newProperty",
+                c => c.String(nullable: true, defaultValueSql: "GETDATE()"));
+            AlterColumn("dbo.LT_NatureOfAccount", "isActive", c => c.Boolean(nullable: true, defaultValueSql: "1"));
+			AddColumn("dbo.DemoRecords", "Created", c => c.DateTime(defaultValueSql: "GETDATE()"));
+			DropColumn("dbo.DemoRecords", "Created");
+			AddColumn("TABLE_NAME", "State", c => c.String(maxLength: 2, nullable: false, defaultValueSql: "'NY'"));
+			ALTER TABLE [MyDataBase].[dbo].[User] ADD FullName as ([FirstName] + ' ' + [LastName])
+			
+			Sql("ALTER TABLE dbo.Calls ADD BreakdownNo AS ('BD'+RIGHT('00000'+ CAST(Id AS VARCHAR), 6))");
+}
+
+ [DefaultValue("ABC-" + Convert.ToString(LT_NatureOfAccount.Id).PadLeft(5, '0'))]
+ 
+   .HasColumnAnnotation("ComputedColumnSql", "isnull(N'SO'+CONVERT([nvarchar](23),[SalesOrderID]),N'*** ERROR ***')");
+   
+   Sql("ALTER TABLE dbo.UserProfiles ADD FullName AS FirstName + ' ' + LastName");
+   
+   {
+            get
+            {
+                return "ABC-" + Convert.ToString(Id).PadLeft(5, '0');
+            }
+            protected set {}
+        }
+		
+		
+		//AddColumn("dbo.Calls", "BreakdownNo", c => c.String());
+    Sql("ALTER TABLE dbo.Calls ADD BreakdownNo AS ('BD'+RIGHT('00000'+ CAST(Id AS VARCHAR), 6))");
+	
+	('CA'+CONVERT([nvarchar](5),[Id]))
+	
+	
+	
+	CreateTable(
+            "dbo.MyEntities",
+            c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Name = c.String(),
+                    Created = c.DateTime(nullable: false, defaultValueSql: "GetDate()"),
+
+
+
+					ALTER TABLE dbo.Products
+DROP COLUMN InventoryValue
+ 
+ALTER TABLE dbo.Products
+ADD InventoryValue AS QtyAvailable * UnitPrice
+
+
+
+
+//this will give you all script for all migration
+update-Database -Script -SourceMigration:0 
+
+//this will give you all script From specesifc souce target till end of migration
+update-database -script -SourceMigration:BuildFirstTimeIdentityModels
+
+Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: [MigrationName]
+
+//specify the connection string when I'm using Add-Migration or Update-Database. I also can use development servers instead of SQL Express.
+
+
+Add-Migration AddSomeThing -ConnectionString "Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-EMS_Events-20151217024735.mdf;Initial Catalog=aspnet-EMS_Events-20151217024735;Integrated Security=True" -ConnectionProviderName "System.Data.SqlClient" -Verbose
+
+Update-Database -ConnectionString "Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-EMS_Events-20151217024735.mdf;Initial Catalog=aspnet-EMS_Events-20151217024735;Integrated Security=True" -ConnectionProviderName "System.Data.SqlClient" -Verbose
+
+
+
+//Reverting back to the initial database. If everything goes well, this should remove all the tables from your database.
+
+Update-Database -TargetMigration: $InitialDatabase
+
+CREATE SEQUENCE NotSSSource
+    START WITH 1
+    INCREMENT BY 1 ;
+GO
+CREATE TABLE StageNotSSSource (
+ID INT DEFAULT (NEXT VALUE FOR NotSSSource),
+ProductID int,
+ListPrice smallmoney)
+GO
+
+
+CREATE SEQUENCE SEQ_ORDENES_TRABAJO as int START WITH 1 INCREMENT BY 1 MINVALUE 1 CYCLE ;
+
+CREATE TABLE [adm].[OrdenesTrabajo](
+    [Id] [uniqueidentifier] NOT NULL,
+    [Consecutivo] [int] NOT NULL,
+    [FechaIngreso] [datetime] NOT NULL,
+    [RemolcadorId] [uniqueidentifier] NOT NULL,
+    [Justificacion] [nvarchar](1000) NOT NULL,
+    [Prioridad] [smallint] NOT NULL,
+    [EstadoMantenimientoId] [uniqueidentifier] NOT NULL,
+    [Usuario] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_adm.OrdenesTrabajo] PRIMARY KEY CLUSTERED 
+(
+    [Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [adm].[OrdenesTrabajo] ADD  CONSTRAINT [OT_consecutivoConstraint]  DEFAULT (NEXT VALUE FOR [SEQ_ORDENES_TRABAJO]) FOR [Consecutivo]
+GO
+
+
+[Required]
+    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+    public Int32 Consecutivo { get; set; }
