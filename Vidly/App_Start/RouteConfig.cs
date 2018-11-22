@@ -14,7 +14,7 @@ namespace Vidly
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");  //this ignore routering anything in debug /obj
 
-
+            #region NotedRotering
             //routes.MapRoute("Home","",new { controller = "Movies", action = "Index" });  this if you need default http://localhost go to moveie controller and action index method
             //routes.MapRoute("Home","movie",new { controller = "Movies", action = "Index" });  this if you need default http://localhost/movie  
 
@@ -27,11 +27,13 @@ namespace Vidly
             //    new { controller = "Movies", action = "ReleasedDate" },
             //    new { year = @"\d{4}", month = @"\d{2}" } /*we can put { month="\\d{ 2}" } || { year ={ "2015 | 2016"} }*/
             //);
+            #endregion NotedRotering
+
 
             routes.MapMvcAttributeRoutes();
-            
 
-            
+
+
 
 
             routes.MapRoute(
